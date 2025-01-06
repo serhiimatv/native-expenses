@@ -1,11 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Super simple counter</Text>
+      <Text>Count: {count}</Text>
+      <View style={{ flexDirection: "row", gap: 10, marginTop: 20 }}>
+        <TouchableOpacity
+          style={[styles.mybutton, styles.decrease]}
+          onPress={() => setCount(count - 1)}
+        >
+          <Text> - </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.mybutton, styles.increase]}
+          onPress={() => setCount(count + 1)}
+        >
+          <Text> + </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -13,8 +29,27 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  mybutton: {
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    alignSelf: "center",
+    borderStyle: "solid",
+    textAlignVertical: "center",
+    alignContent: "center",
+    borderWidth: 2,
+    borderRadius: "50%",
+    height: 40,
+    width: 40,
+  },
+  increase: {
+    borderColor: "green",
+  },
+  decrease: {
+    borderColor: "red",
   },
 });
