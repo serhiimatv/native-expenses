@@ -23,9 +23,6 @@ export default function Page() {
           <Text> + </Text>
         </TouchableOpacity>
       </View>
-      <View style={{ marginTop: 40 }}>
-        <Link href="./about">About</Link>
-      </View>
     </View>
   );
 }
