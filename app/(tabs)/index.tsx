@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { router, Router } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -21,6 +21,14 @@ export default function Page() {
           onPress={() => setCount(count + 1)}
         >
           <Text> + </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ marginTop: 20 }}>
+        <TouchableOpacity
+          style={[styles.mybutton, styles.decrease]}
+          onPress={() => router.push("/expenses")}
+        >
+          <Text> - </Text>
         </TouchableOpacity>
       </View>
     </View>

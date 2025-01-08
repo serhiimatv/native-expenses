@@ -1,27 +1,13 @@
-import { Tabs } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Stack } from "expo-router";
 
 export default function Layout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "red" }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          headerShown: false,
-          tabBarIcon: () => <FontAwesome size={28} name="home" color="red" />,
-        }}
+    <Stack>
+      <Stack.Screen
+        name="(tabs)"
+        options={{ title: "Home", headerShown: false }}
       />
-      <Tabs.Screen
-        name="about/index"
-        options={{
-          title: "About",
-          headerShown: false,
-          tabBarIcon: () => (
-            <FontAwesome size={28} name="pie-chart" color="red" />
-          ),
-        }}
-      />
-    </Tabs>
+      <Stack.Screen name="expenses/index" options={{ title: "Expenses" }} />
+    </Stack>
   );
 }
