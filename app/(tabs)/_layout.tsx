@@ -3,14 +3,14 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function Layout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "red" }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: "#9500ae" }}>
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
           headerShown: false,
-          tabBarIcon: () => (
-            <FontAwesome size={28} name="circle-o" color="red" />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="circle-o" color={color} />
           ),
         }}
       />
@@ -19,8 +19,8 @@ export default function Layout() {
         options={{
           title: "About",
           headerShown: false,
-          tabBarIcon: () => (
-            <FontAwesome size={28} name="pie-chart" color="red" />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="pie-chart" color={color} />
           ),
         }}
       />

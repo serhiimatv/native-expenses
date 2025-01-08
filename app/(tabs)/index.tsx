@@ -1,37 +1,24 @@
-import { router, Router } from "expo-router";
-import { useState } from "react";
+import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { MONTH_NAMES_EN } from "../../constants/constant";
 
 export default function Page() {
-  const [count, setCount] = useState(0);
+  const date = new Date();
 
   return (
-    <View style={styles.container}>
-      <Text>Super simple counter</Text>
-      <Text>Count: {count}</Text>
-      <View style={{ flexDirection: "row", gap: 10, marginTop: 20 }}>
-        <TouchableOpacity
-          style={[styles.mybutton, styles.decrease]}
-          onPress={() => setCount(count - 1)}
-        >
-          <Text> - </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.mybutton, styles.increase]}
-          onPress={() => setCount(count + 1)}
-        >
-          <Text> + </Text>
-        </TouchableOpacity>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.title}>{MONTH_NAMES_EN[date.getMonth()]}</Text>
+        </View>
+        <View style={{ marginTop: 20 }}>
+          <TouchableOpacity style={{}} onPress={() => router.push("/expenses")}>
+            <Text> - </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={{ marginTop: 20 }}>
-        <TouchableOpacity
-          style={[styles.mybutton, styles.decrease]}
-          onPress={() => router.push("/expenses")}
-        >
-          <Text> - </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -39,26 +26,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingHorizontal: 15,
   },
-  mybutton: {
-    alignItems: "center",
-    justifyContent: "center",
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
     textAlign: "center",
-    alignSelf: "center",
-    borderStyle: "solid",
-    textAlignVertical: "center",
-    alignContent: "center",
-    borderWidth: 2,
-    borderRadius: "50%",
-    height: 40,
-    width: 40,
-  },
-  increase: {
-    borderColor: "green",
-  },
-  decrease: {
-    borderColor: "red",
   },
 });
