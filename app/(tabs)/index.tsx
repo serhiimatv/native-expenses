@@ -5,7 +5,7 @@ import { MONTH_NAMES_EN } from "../../constants/constant";
 
 export default function Page() {
   const date = new Date();
-
+  // coment
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View style={styles.container}>
